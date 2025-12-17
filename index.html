@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap do Gerente de Projeto Institucional (CNJ)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f9ff; /* light sky background */
+            color: #1e293b; /* slate 800 */
+        }
+        
+        /* Chart Container Styling - MANDATORY */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 400px;
+            }
+        }
+
+        /* Custom Utilities for "No SVG" Graphics */
+        .step-circle {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: white;
+            font-size: 1.2rem;
+        }
+
+        .arrow-down {
+            width: 0; 
+            height: 0; 
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 15px solid #0ea5e9;
+            margin: 0 auto;
+        }
+
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transition: transform 0.2s;
+        }
+        
+        .card-shadow:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+    </style>
+    <!-- 
+    Palette Name: Institutional Vibrance
+    Colors: 
+    - Primary: #0ea5e9 (Sky 500)
+    - Secondary: #3b82f6 (Blue 500)
+    - Accent: #f97316 (Orange 500)
+    - Success: #10b981 (Emerald 500)
+    -->
+    
+    <!--
+    PLAN NARRATIVE SUMMARY:
+    1. Header: Introduce the roadmap based on IN 93/2023.
+    2. Lifecycle Overview: Visual flow of the 4 phases.
+    3. Phase 1 (Proposição): Donut chart (TAP Composition).
+    4. Phase 2 (Planejamento): Stacked Bar (Incremental Planning).
+    5. Phase 3 (Execução): Bar Chart (Routine Frequencies).
+    6. Phase 4 (Encerramento): Radar Chart (Success Metrics).
+    7. Special Cases & Rules: Cards for Transition and Golden Rules.
+    -->
+    
+    <!--
+    CHART SELECTION JUSTIFICATION (NO SVG):
+    1. Phase 1: Donut Chart (Chart.js) -> Inform -> Shows parts of the TAP.
+    2. Phase 2: Stacked Bar (Chart.js) -> Compare -> Shows Detail vs Time (Rolling Wave).
+    3. Phase 3: Bar Chart (Chart.js) -> Compare -> Shows Frequency of Tasks.
+    4. Phase 4: Radar Chart (Chart.js) -> Relationships -> Shows multidimensional success.
+    
+    CONFIRMATION: NO SVG used. NO Mermaid JS used.
+    -->
+</head>
+<body class="bg-slate-50">
+
+    <!-- Hero Section -->
+    <header class="bg-gradient-to-r from-sky-600 to-blue-700 text-white p-8 md:p-12 shadow-lg">
+        <div class="max-w-6xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-black tracking-tight mb-4">Jornada do Gerente de Projeto</h1>
+            <p class="text-xl md:text-2xl font-light text-sky-100">Guia Visual para Projetos Institucionais do CNJ (IN 93/2023)</p>
+            <div class="mt-8 flex justify-center space-x-4">
+                <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">Metodologia MGPRO</span>
+                <span class="bg-white/20 px-4 py-2 rounded-full text-sm font-semibold backdrop-blur-sm">Foco em Resultados</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-7xl mx-auto p-6 md:p-10 space-y-16">
+
+        <!-- Section: Overview Journey -->
+        <section>
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-800 border-b-4 border-orange-500 inline-block pb-2">O Ciclo de Vida</h2>
+                <p class="text-slate-600 mt-4 max-w-2xl mx-auto">Uma visão macro das quatro fases essenciais que transformam uma ideia estratégica em valor institucional.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-center">
+                <!-- Step 1 -->
+                <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-sky-500">
+                    <div class="step-circle bg-sky-500 mx-auto mb-4">1</div>
+                    <h3 class="font-bold text-lg text-slate-800">Proposição</h3>
+                    <p class="text-sm text-slate-500 mt-2">Alinhamento Estratégico & TAP</p>
+                </div>
+                <!-- Step 2 -->
+                <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-blue-600">
+                    <div class="step-circle bg-blue-600 mx-auto mb-4">2</div>
+                    <h3 class="font-bold text-lg text-slate-800">Planejamento</h3>
+                    <p class="text-sm text-slate-500 mt-2">PGP & Ondas Sucessivas</p>
+                </div>
+                <!-- Step 3 -->
+                <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-orange-500">
+                    <div class="step-circle bg-orange-500 mx-auto mb-4">3</div>
+                    <h3 class="font-bold text-lg text-slate-800">Execução</h3>
+                    <p class="text-sm text-slate-500 mt-2">Monitoramento & Controle</p>
+                </div>
+                <!-- Step 4 -->
+                <div class="bg-white p-6 rounded-xl card-shadow border-t-4 border-emerald-500">
+                    <div class="step-circle bg-emerald-500 mx-auto mb-4">4</div>
+                    <h3 class="font-bold text-lg text-slate-800">Encerramento</h3>
+                    <p class="text-sm text-slate-500 mt-2">Lições Aprendidas & TEP</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Phase 1 - Proposição -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div class="order-2 md:order-1">
+                <div class="bg-white rounded-xl shadow-lg p-4">
+                    <div class="chart-container">
+                        <canvas id="tapChart"></canvas>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-slate-400 mt-2">Composição estratégica do Termo de Abertura do Projeto</p>
+            </div>
+            <div class="order-1 md:order-2">
+                <h3 class="text-2xl font-bold text-sky-600 mb-4">Fase 1: Proposição</h3>
+                <p class="text-slate-700 mb-4 text-lg">
+                    Tudo começa com o <strong>Termo de Abertura do Projeto (TAP)</strong>. O objetivo desta fase não é apenas preencher um formulário, mas garantir que a iniciativa esteja conectada aos Macrodesafios do CNJ.
+                </p>
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="text-orange-500 mr-2 font-bold">➤</span>
+                        <span class="text-slate-600"><strong>Justificativa:</strong> Por que este projeto é necessário agora?</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-orange-500 mr-2 font-bold">➤</span>
+                        <span class="text-slate-600"><strong>Benefícios:</strong> O que a instituição ganha com isso?</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="text-orange-500 mr-2 font-bold">➤</span>
+                        <span class="text-slate-600"><strong>Macroetapas:</strong> Uma visão inicial do cronograma.</span>
+                    </li>
+                </ul>
+                <div class="mt-6 bg-sky-50 p-4 rounded-lg border-l-4 border-sky-500">
+                    <p class="text-sm text-sky-800 font-semibold">💡 O Gerente auxilia o Patrocinador na coleta destas informações vitais.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Phase 2 - Planejamento -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div>
+                <h3 class="text-2xl font-bold text-blue-700 mb-4">Fase 2: Planejamento Híbrido</h3>
+                <p class="text-slate-700 mb-4 text-lg">
+                    O CNJ utiliza o conceito de <strong>Ondas Sucessivas</strong>. Não tente planejar o detalhe do mês 12 no dia 1. O Plano de Gerenciamento do Projeto (PGP) é vivo e incremental.
+                </p>
+                <div class="space-y-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                        <h4 class="font-bold text-blue-600">Planejamento Imediato</h4>
+                        <p class="text-sm text-slate-600">Detalhamento granular das tarefas, recursos e custos da próxima etapa.</p>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                        <h4 class="font-bold text-sky-500">Planejamento Futuro</h4>
+                        <p class="text-sm text-slate-600">Visão macro (ondas). O detalhamento ocorre conforme a etapa se aproxima.</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="bg-white rounded-xl shadow-lg p-4">
+                    <div class="chart-container">
+                        <canvas id="planningWavesChart"></canvas>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-slate-400 mt-2">Nível de detalhe no PGP ao longo do tempo</p>
+            </div>
+        </section>
+
+        <!-- Section: Phase 3 - Execução -->
+        <section class="bg-white rounded-2xl shadow-xl p-8 border border-slate-100">
+            <div class="text-center mb-8">
+                <h3 class="text-2xl font-bold text-orange-500 mb-2">Fase 3: A Rotina de Execução</h3>
+                <p class="text-slate-600">O sucesso está na disciplina do monitoramento. O que não é medido, não é gerenciado.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="md:col-span-2">
+                     <div class="chart-container">
+                        <canvas id="routineChart"></canvas>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-center space-y-6">
+                    <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-blue-500">
+                        <h4 class="font-bold text-slate-800">Mensalmente</h4>
+                        <p class="text-sm text-slate-600">Reunião de Monitoramento com o ECP ou envio do relatório de progresso.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-orange-500">
+                        <h4 class="font-bold text-slate-800">Trimestralmente</h4>
+                        <p class="text-sm text-slate-600">Medição formal dos benefícios alcançados em relação ao TAP.</p>
+                    </div>
+                    <div class="p-4 bg-slate-50 rounded-lg border-l-4 border-emerald-500">
+                        <h4 class="font-bold text-slate-800">Continuamente</h4>
+                        <p class="text-sm text-slate-600">Atualização do PGP (histórico cumulativo) e execução orçamentária no SEI.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section: Phase 4 - Encerramento -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+            <div class="order-2 md:order-1">
+                <div class="bg-white rounded-xl shadow-lg p-4">
+                    <div class="chart-container">
+                        <canvas id="closingRadarChart"></canvas>
+                    </div>
+                </div>
+                <p class="text-center text-xs text-slate-400 mt-2">Dimensões avaliadas no Termo de Encerramento (TEP)</p>
+            </div>
+            <div class="order-1 md:order-2">
+                <h3 class="text-2xl font-bold text-emerald-600 mb-4">Fase 4: Encerramento e Legado</h3>
+                <p class="text-slate-700 mb-4 text-lg">
+                    Um projeto não acaba quando a entrega é feita, mas quando o <strong>Termo de Encerramento (TEP)</strong> é aprovado. Esta fase é crucial para a gestão do conhecimento institucional.
+                </p>
+                <div class="grid grid-cols-1 gap-4">
+                    <div class="flex items-center bg-white p-3 rounded shadow-sm">
+                        <div class="bg-emerald-100 p-2 rounded mr-3 text-emerald-600 font-bold">✓</div>
+                        <div>
+                            <span class="block font-bold text-slate-700">Validação de Benefícios</span>
+                            <span class="text-xs text-slate-500">O que prometemos no TAP foi entregue?</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center bg-white p-3 rounded shadow-sm">
+                        <div class="bg-emerald-100 p-2 rounded mr-3 text-emerald-600 font-bold">✓</div>
+                        <div>
+                            <span class="block font-bold text-slate-700">Lições Aprendidas</span>
+                            <span class="text-xs text-slate-500">O que erramos? O que acertamos?</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Transition & Guidelines -->
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Transition Card -->
+            <div class="bg-gradient-to-br from-slate-800 to-slate-900 rounded-2xl p-8 text-white shadow-xl">
+                <h3 class="text-2xl font-bold text-orange-400 mb-4">⚠ Transição de Gestão</h3>
+                <p class="text-slate-300 mb-4">Em casos de mudança da Presidência do CNJ, o rigor deve ser redobrado.</p>
+                <ul class="text-sm space-y-3 text-slate-300">
+                    <li class="border-b border-slate-700 pb-2">📄 <strong>Parecer Expositivo:</strong> Relatório obrigatório com pendências e riscos.</li>
+                    <li class="border-b border-slate-700 pb-2">💾 <strong>Backup Total:</strong> Transferência de memória de cálculo e arquivos.</li>
+                    <li>🤝 <strong>Gerente Institucional:</strong> Garantia de continuidade se o GP for externo.</li>
+                </ul>
+            </div>
+
+            <!-- Golden Rules -->
+            <div class="bg-white rounded-2xl p-8 shadow-xl border-t-8 border-sky-500">
+                <h3 class="text-2xl font-bold text-sky-600 mb-4">Regras de Ouro</h3>
+                <div class="space-y-4">
+                    <div class="flex">
+                        <span class="text-2xl mr-3">📂</span>
+                        <div>
+                            <h5 class="font-bold text-slate-800">O SEI é a Verdade</h5>
+                            <p class="text-xs text-slate-500">Se não está no processo SEI, o trabalho não existe formalmente.</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <span class="text-2xl mr-3">📈</span>
+                        <div>
+                            <h5 class="font-bold text-slate-800">PGP Cumulativo</h5>
+                            <p class="text-xs text-slate-500">Nunca apague o histórico. Adicione novas etapas ao plano existente.</p>
+                        </div>
+                    </div>
+                    <div class="flex">
+                        <span class="text-2xl mr-3">🔗</span>
+                        <div>
+                            <h5 class="font-bold text-slate-800">Use Modelos Oficiais</h5>
+                            <p class="text-xs text-slate-500">Sempre baixe as versões mais recentes (TAP 2024, PGP 2025) na Intranet.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-slate-400 text-center p-8 mt-12">
+        <p class="text-sm">Baseado na Instrução Normativa CNJ nº 93/2023 e MGPRO.</p>
+        <p class="text-xs mt-2">© Conselho Nacional de Justiça - Infográfico Gerado por IA</p>
+    </footer>
+
+    <!-- JavaScript for Charts -->
+    <script>
+        // --- UTILITY: Label Wrapping (16 chars) ---
+        function wrapLabels(label) {
+            if (typeof label !== 'string') return label;
+            if (label.length <= 16) return label;
+            
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = words[0];
+
+            for (let i = 1; i < words.length; i++) {
+                if ((currentLine + " " + words[i]).length <= 16) {
+                    currentLine += " " + words[i];
+                } else {
+                    lines.push(currentLine);
+                    currentLine = words[i];
+                }
+            }
+            lines.push(currentLine);
+            return lines;
+        }
+
+        // --- COMMON CONFIG ---
+        Chart.defaults.font.family = "'Roboto', sans-serif";
+        Chart.defaults.color = '#475569';
+        
+        const commonTooltip = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: TAP Composition (Donut) ---
+        const ctxTap = document.getElementById('tapChart').getContext('2d');
+        const tapLabels = ['Justificativa Estratégica', 'Benefícios Esperados', 'Alinhamento CNJ', 'Cronograma Macro', 'Equipe Inicial'];
+        new Chart(ctxTap, {
+            type: 'doughnut',
+            data: {
+                labels: tapLabels.map(wrapLabels),
+                datasets: [{
+                    data: [30, 25, 20, 15, 10], // Weighted importance for visualization
+                    backgroundColor: [
+                        '#0ea5e9', // Sky 500
+                        '#3b82f6', // Blue 500
+                        '#f97316', // Orange 500
+                        '#10b981', // Emerald 500
+                        '#64748b'  // Slate 500
+                    ],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { position: 'bottom' },
+                    tooltip: commonTooltip,
+                    title: {
+                        display: true,
+                        text: 'Elementos do TAP (Peso Relativo)'
+                    }
+                }
+            }
+        });
+
+        // --- CHART 2: Planning Waves (Stacked Bar) ---
+        const ctxWaves = document.getElementById('planningWavesChart').getContext('2d');
+        const waveLabels = ['Mês 1 (Atual)', 'Mês 2', 'Mês 3', 'Mês 4 (Futuro)'];
+        new Chart(ctxWaves, {
+            type: 'bar',
+            data: {
+                labels: waveLabels.map(wrapLabels),
+                datasets: [
+                    {
+                        label: 'Detalhamento Fino (Tarefas)',
+                        data: [100, 50, 20, 0],
+                        backgroundColor: '#0ea5e9', // Sky
+                    },
+                    {
+                        label: 'Planejamento Macro (Ondas)',
+                        data: [0, 50, 80, 100],
+                        backgroundColor: '#cbd5e1', // Slate 300
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { stacked: true },
+                    y: { 
+                        stacked: true,
+                        title: { display: true, text: '% de Detalhamento' }
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltip,
+                    legend: { position: 'bottom' },
+                    title: {
+                        display: true,
+                        text: 'Conceito de Ondas Sucessivas'
+                    }
+                }
+            }
+        });
+
+        // --- CHART 3: Routine Frequency (Bar) ---
+        const ctxRoutine = document.getElementById('routineChart').getContext('2d');
+        const routineLabels = ['Execução Diária', 'Monitoramento ECP', 'Medição Benefícios', 'Revisão PGP'];
+        new Chart(ctxRoutine, {
+            type: 'bar',
+            data: {
+                labels: routineLabels.map(wrapLabels),
+                datasets: [{
+                    label: 'Frequência de Ações (Dias/Mês)',
+                    data: [20, 1, 0.3, 2], // Approx frequency weight
+                    backgroundColor: [
+                        '#3b82f6', // Daily
+                        '#f97316', // Monthly (Orange)
+                        '#10b981', // Quarterly (Emerald)
+                        '#64748b'  // Adhoc
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: commonTooltip,
+                    title: {
+                        display: true,
+                        text: 'Intensidade da Rotina do Gerente'
+                    }
+                },
+                scales: {
+                    y: {
+                        title: { display: true, text: 'Frequência Relativa' },
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // --- CHART 4: Closing Success (Radar) ---
+        const ctxClosing = document.getElementById('closingRadarChart').getContext('2d');
+        const closingLabels = ['Escopo Entregue', 'Prazo Cumprido', 'Orçamento', 'Benefícios Reais', 'Lições Doc.'];
+        new Chart(ctxClosing, {
+            type: 'radar',
+            data: {
+                labels: closingLabels.map(wrapLabels),
+                datasets: [{
+                    label: 'Projeto Ideal',
+                    data: [5, 5, 5, 5, 5],
+                    borderColor: '#cbd5e1',
+                    borderDash: [5, 5],
+                    fill: false,
+                    pointRadius: 0
+                },
+                {
+                    label: 'Resultado Real',
+                    data: [5, 4, 5, 3.5, 5],
+                    backgroundColor: 'rgba(14, 165, 233, 0.2)', // Sky with opacity
+                    borderColor: '#0ea5e9',
+                    pointBackgroundColor: '#0ea5e9',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    r: {
+                        angleLines: { color: '#e2e8f0' },
+                        grid: { color: '#e2e8f0' },
+                        pointLabels: { font: { size: 11 } },
+                        suggestedMin: 0,
+                        suggestedMax: 5
+                    }
+                },
+                plugins: {
+                    tooltip: commonTooltip,
+                    legend: { position: 'bottom' }
+                }
+            }
+        });
+    </script>
+</body>
+</html>
